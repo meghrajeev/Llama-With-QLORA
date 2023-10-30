@@ -33,7 +33,9 @@ if __name__=="__main__":
 
     conv = []
     for file in os.listdir(dataset_folder):
-        with open(dataset_folder + '/' + file, 'r') as f:
+        file_path = os.path.join(dataset_folder, file)
+        if os.path.isfile(file_path):
+          with open(file_path, 'r') as f:
             data = json.load(f)
             count=0
             for message in data:
