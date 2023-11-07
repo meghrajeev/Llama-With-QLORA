@@ -4,11 +4,21 @@ import os
 import sys
 
 def remove_placeholders(message):
-	skip_list = ['Missed video call','Missed video call','You blocked this user.','You unblocked this user.','<This message was edited>','This message was deleted.',' omitted\n']
-	for phrase in skip_list:
-		if phrase in message:
-			return True
-	return False
+    message = message.strip()  # Strip whitespace and newline characters
+    skip_list = [
+        'Messages and calls are end-to-end encrypted. No one outside of this chat, not even WhatsApp, can read or listen to them.',
+        'Missed video call',
+        'You blocked this user.',
+        'You unblocked this user.',
+        '<This message was edited>',
+        'This message was deleted.',
+        ' omitted'  
+    ]
+    for phrase in skip_list:
+        if re.search(re.escape(phrase), message, re.IGNORECASE):
+            return True
+    return False
+
 
 def replace_users(message, contact_name, friend_name,bot_name, your_contact_name):
 	message = re.sub(your_contact_name, bot_name, message)

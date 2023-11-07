@@ -3,8 +3,8 @@ import csv
 import argparse
 import os
 def process_conversation(folder_path, json_path, user_name):
-    csv_file_name = f"{folder_path}/AllChats.csv"
-    json_file_name = f"{folder_path}/AllChats.json"
+    csv_file_name = f"{json_path}/AllChats.csv"
+    json_file_name = f"{json_path}/AllChats.json"
     dataset = []
 
     for file in os.listdir(folder_path):
