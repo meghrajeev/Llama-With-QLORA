@@ -4,7 +4,7 @@ import os
 import sys
 
 def remove_placeholders(message):
-	skip_list = ['You blocked this user.','You unblocked this user.','<This message was edited>','This message was deleted.',' omitted\n']
+	skip_list = ['Missed video call','Missed video call','You blocked this user.','You unblocked this user.','<This message was edited>','This message was deleted.',' omitted\n']
 	for phrase in skip_list:
 		if phrase in message:
 			return True
