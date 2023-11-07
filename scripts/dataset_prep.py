@@ -40,8 +40,8 @@ if __name__=="__main__":
             count=0
             for message in data:
                 if list(message.keys())[0]==user_name and count!=0: #expect the other person to start the conversation
-                    if(count>=5):
-                        conv.append([format_context(data[count-5:count]),format_output(message)])
+                    if(count>=3):
+                        conv.append([format_context(data[count-3:count]),format_output(message)])
                     else:
                         conv.append([format_context(data[0:count]),format_output(message)])
                 count+=1
